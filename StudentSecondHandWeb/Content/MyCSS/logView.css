@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.large-header {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background-position: center center;
+    background-image: url(/images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.logo_box {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    left: 50%;
+    top: 50%;
+    margin-left: -255px;
+    margin-top: -220px;
+    border-radius:5px;
+    padding:40px 80px;
+}
+
+.logo_box h3 {
+    text-align: center;
+    height: 20px;
+    font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+    color: white;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 0 35px 0;
+}
+
+.logon_inof {
+    width: 100%;
+    min-height: 450px;
+    padding-top: 35px;
+    position: relative;
+}
+
+.input_outer {
+    height: 46px;
+    padding: 0 5px;
+    margin-bottom: 30px;
+    position: relative;
+    border-bottom: white 2px solid !important;
+}
+
+.picture_passid {
+    width: 25px;
+    height: 25px;
+    background: url(/images/login_ico.png);
+    background-position: -125px 0;
+    position: absolute;
+    margin: 10px 13px;
+}
+
+.picture_password {
+    width: 25px;
+    height: 25px;
+    background-image: url(/images/login_ico.png);
+    background-position: -125px -34px;
+    position: absolute;
+    margin: 10px 13px;
+}
+
+.text {
+    width: 220px;
+    height: 46px;
+    outline: none;
+    display: inline-block;
+    font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    margin-left: 50px;
+    border: none;
+    background: none;
+    line-height: 46px;
+    color: white;
+}
+
+.code {
+    position: relative;
+    height: 46px;
+    margin-bottom: 30px;
+}
+
+.writecode-context {
+    width: 160px;
+    height: 46px;
+    padding: 0 5px;
+    position: relative;
+    outline: none;
+    border-bottom: white 2px solid !important;
+    float: left;
+}
+
+.picture_code {
+    width: 25px;
+    height: 25px;
+    background-image: url(/images/login_ico.png);
+    background-position: -125px -34px;
+    position: absolute;
+    margin: 10px 13px;
+}
+
+.writecode {
+    width: 160px;
+    height: 46px;
+    outline: none;
+    display: inline-block;
+    font: 14px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei";
+    margin-left: 50px;
+    border: none;
+    background: none;
+    line-height: 46px;
+    color: white;
+}
+
+.myCanvas {
+    width: 160px;
+    height: 46px;
+    padding: 2px 0px 2px 10px;
+}
+
+.myCanvas:hover{
+    cursor:pointer;
+}
+
+#message-passid, #message-password, #message-code, #message {
+    color: red;
+}
+
+#message-code,#message {
+    position:relative;
+    padding-left: 5px;
+}
+
+.act-but {
+    height: 46px;
+    width: 350px;
+    color: #FFFFFF;
+    line-height: 20px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #0096e6;
+    outline: none;
+}
+
+.gotoregister {
+    margin-top: 20px;
+    float: right;
+    color: white;
+}
+
+.register {
+    color: green;
+}

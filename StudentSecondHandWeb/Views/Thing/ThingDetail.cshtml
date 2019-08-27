@@ -1,0 +1,127 @@
+﻿@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+    int thingcount = 0;
+}
+
+@using PagedList.Mvc;
+@using StudentSecondHandWeb.Models
+@model StudentSecondHandWeb.Controllers.ViewModelForThingDetail
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>物品详细信息</title>
+    <link rel="stylesheet" href="~/Content/MyCSS/thingdetails.css" />
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+</head>
+<body>
+    <div class="thing-details">
+        <div class="thing-details-main">
+            <div class="thing-details-picture">
+                <img class="picture-context" src="@Html.DisplayFor(model => model.Thingdetail.ResPicture)">
+            </div>
+            <div class="thing-details-context">
+                <div class="word-context">
+                    <span>编号：</span>
+                    <span id="resid" class="word-style">@Html.DisplayFor(model => model.Thingdetail.ID)</span>
+                </div>
+                <div class="word-context">
+                    <span>名称：</span>
+                    <span id="resname" class="word-style">@Html.DisplayFor(model => model.Thingdetail.ResName)</span>
+                </div>
+                <div class="word-context">
+                    <span>主类：</span>
+                    <span id="rescategorymain" class="word-style">@Html.DisplayFor(model => model.Thingdetail.ResCategoryMain)</span>
+                </div>
+                <div class="word-context">
+                    <span>次类：</span>
+                    <span id="rescategorysecond" class="word-style">@Html.DisplayFor(model => model.Thingdetail.ResCategorySecond)</span>
+                </div>
+                <div class="word-context">
+                    <span>价格：</span>
+                    <span id="resprice" class="word-style">@Html.DisplayFor(model => model.Thingdetail.ResPrice) 元</span>
+                </div>
+                <div class="word-context">
+                    <span>物主：</span>
+                    <span id="regname" class="word-style">@Html.DisplayFor(model => model.Thingdetail.RegName)</span>
+                </div>
+                <div class="word-context">
+                    <span>电话：</span>
+                    <span id="regphone" class="word-style">@Html.DisplayFor(model => model.Thingdetail.RegPhone)</span>
+                </div>
+                <div class="word-context">
+                    <span>学校：</span>
+                    <span id="regschool" class="word-style">@Html.DisplayFor(model => model.Thingdetail.RegSchool)</span>
+                </div>
+                <div class="word-context">
+                    <span id="resintroduction" class="word-style-introduction">@Html.DisplayFor(model => model.Thingdetail.ResIntroduction)</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="thing-details-btn">
+            <button id="btnbuything" class="btnthing">购买</button>
+            <button id="btncollectthing" class="btnthing">收藏</button>
+            <p class="colnum">已有 @Html.DisplayFor(model => model.Thingdetail.ResColNum) 人收藏</p>
+        </div>
+        <div class="send-message">
+            <textarea id="message" class="message-now"></textarea>
+            <button id="btnsendmessage" class="sendmes">发表留言</button>
+        </div>
+    </div>
+
+    <div class="message">
+        <p class="message-title">用户评论</p>
+        @if (Model.Message.Count == 0)
+        {
+            <div class="message-context">
+                <p class="no-message">暂无评论</p>
+            </div>
+        }
+        @if (Model.Message.Count > 0)
+        {
+            <div class="message-context">
+                @foreach (var item in Model.Message)
+                {
+                    <div class="message-information">
+                        <span class="person-information">用户</span>
+                        <span class="message-person">@Html.DisplayFor(model => item.MessagePerson)</span>
+                        <span class="person-information-phone">号码</span>
+                        <span class="message-person-phone">@Html.DisplayFor(model => item.MessagePersonPhone)</span>
+                        <p class="message-time">@Html.DisplayFor(model => item.MessageTime)</p>
+                        <p class="message-word">@Html.DisplayFor(model => item.MessageContext)</p> 
+                    </div>
+                }
+
+            </div>
+        }
+    </div>
+
+    <div class="commodity-introduction">
+
+        @foreach (var item in Model.Thing)
+        {
+            if (thingcount <= 6 && item.WhetherSell == "0" && item.WhetherDown == "0")
+            {
+                <div class="goodcommodity">
+                    <a href="~/Thing/ThingDetail?id=@Html.DisplayFor(modelItem => item.ID)">
+                        <img class="goodcommoditypicture" src="@Html.DisplayFor(modelItem => item.ResPicture)">
+                    </a>
+
+                    <div class="goodcommodity-introduction">
+                        @Html.DisplayFor(modelItem => item.ResIntroduction)
+                    </div>
+                </div>
+
+                thingcount = thingcount + 1;
+            }
+
+        }
+    </div>
+    <script src="~/Scripts/MyJavaScripts/buyorcollectthing.js"></script>
+</body>
+</html>

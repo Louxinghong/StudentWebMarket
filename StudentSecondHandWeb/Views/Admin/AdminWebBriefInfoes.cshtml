@@ -1,0 +1,64 @@
+﻿
+
+@model IEnumerable<StudentSecondHandWeb.Models.WebBriefInfo>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台-网页简介信息</title>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link href="~/Content/MyCSS/webbrief.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="page-wrap">
+        @foreach (var item in Model)
+        {
+            <div class="main">
+                <span>主题：</span>
+                <span id="webtheme">@Html.DisplayFor(modelItem => item.WebTheme)</span>
+
+                <img class="webpic" src="@Html.DisplayFor(modelItem => item.WebPicture)" />
+                <p>
+                    <span>目的：</span>
+                    <span id="webpurpose">@Html.DisplayFor(modelItem => item.WebPurpose)</span>
+                </p>
+                <span>内容：</span>
+                <span>
+                    @Html.DisplayFor(modelItem => item.WebContext)
+                </span>
+            </div>
+
+            <button class="modify" onclick='modifywebbrief(
+                    "@Html.DisplayFor(modelItem => item.WebTheme)",
+                    "@Html.DisplayFor(modelItem => item.WebPicture)",
+                    "@Html.DisplayFor(modelItem => item.WebPurpose)",
+                    "@Html.DisplayFor(modelItem => item.WebContext)")'>编辑</button>
+        }
+
+    </div>
+
+    <div id="dialog" title="修改网站简介信息">
+
+        主题：<input id="modifytheme" />
+        图片原路径：<input id="modifypicture"/>
+        <p>
+            <span>目的：</span>
+            <input id="modifypurpose" />
+        </p>
+
+        <p>内容：</p>
+        <textarea id="modifycontext"></textarea>
+        <button id="webbriefconfirm">确定</button>
+    </div>
+
+    <script src="~/Scripts/MyJavaScripts/backgroundinfodetails.js"></script>
+</body>
+</html>
+
+

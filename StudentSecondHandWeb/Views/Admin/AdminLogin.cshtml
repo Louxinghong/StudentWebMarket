@@ -1,0 +1,36 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>管理员登录</title>
+    <link href="~/Content/MyCSS/adminlogin.css" type="text/css" rel="stylesheet">
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="login">
+        <div class="message">管理登录</div>
+        <div id="darkbannerwrap"></div>
+
+        <div>
+            <input name="action" value="login" type="hidden">
+            <input id="adminpassid" name="username" placeholder="用户名" required="" type="text">
+            <hr class="hr15">
+            <input id="adminpassword" name="password" placeholder="密码" required="" type="password">
+            <hr class="hr15">
+            <input value="登录" class="btnadminlogin" id="btnadminlogin" type="submit">
+            <hr class="hr20">
+            <p><a href="~/Home/Main">前往首页</a></p>
+        </div>
+    </div>
+
+    <script src="~/Scripts/MyJavaScripts/adminlogin.js"></script>
+</body>
+
+</html>
+

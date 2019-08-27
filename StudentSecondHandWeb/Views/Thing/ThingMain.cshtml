@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.ThingInfo>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Content/MyCSS/thingmain.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+    <title>商品信息</title>
+</head>
+<body>
+    <div class="all">
+        @if (Model.ToList().Count > 0)
+        {
+            foreach (var item in Model)
+            {
+
+                <div class="thing-array">
+
+                    <a class="thing-detail" href="~/Thing/ThingDetail?id=@Html.DisplayFor(modelItem => item.ID)">
+                        <img src="~/images/search.png" class="search-picture">
+                    </a>
+                    <div class="main">
+                        <div class="thing-picture">
+                            <img class="picture" src="@Html.DisplayFor(modelItem => item.ResPicture)">
+                        </div>
+
+                        <div class="context">
+                            <p class="thing-info">
+                                <span class="name">@Html.DisplayFor(modelItem => item.ResName)</span>
+                            </p>
+                            <p class="thing-info">
+                                <span class="thing-price">¥<span class="price">@Html.DisplayFor(modelItem => item.ResPrice)元</span></span>
+                            </p>
+                            <div class="thing-introduction">
+                                @Html.DisplayFor(modelItem => item.ResIntroduction)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else if(Model.ToList().Count == 0)
+        {
+            <p class="nothing">暂无此类商品</p>
+        }
+
+    </div>
+    @Html.PagedListPager(
+       Model, page => Url.Action("ThingMain", new { page = page }),
+       new PagedListRenderOptions {
+           LinkToFirstPageFormat = "首页",
+           LinkToPreviousPageFormat = "上一页",
+           LinkToNextPageFormat = "下一页",
+           LinkToLastPageFormat = "尾页",
+           MaximumPageNumbersToDisplay = 5
+       }
+   )
+</body>
+</html>

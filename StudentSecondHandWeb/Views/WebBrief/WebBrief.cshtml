@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@model StudentSecondHandWeb.Models.WebBriefInfo
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网站简介信息</title>
+    <style>
+        .webbriefinfo {
+            position: relative;
+            margin: 0px auto;
+            width: 700px;
+            height: 1000px;
+            margin-top: 40px;
+        }
+
+        .webbriefpicture {
+            width: 700px;
+            height: 400px;
+        }
+
+        .webbrieftitle {
+            text-align: center;
+            font-size: 25px;
+            font-weight: 700;
+            font-family: "KaiTi";
+            margin-top: 30px;
+        }
+
+        .webbrieftime {
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 30px
+        }
+
+        .webbriefcontent {
+            position: relative;
+            width: 650px;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="webbriefinfo">
+        <img class="webbriefpicture" src="@Html.DisplayFor(model => model.WebPicture)">
+        <p class="webbrieftitle">@Html.DisplayFor(model => model.WebTheme)</p>
+        <p class="webbrieftime">旨在 @Html.DisplayFor(model => model.WebPurpose)</p>
+        <p class="webbriefcontent">@Html.DisplayFor(model => model.WebContext)</p>
+    </div>
+</body>
+</html>
+

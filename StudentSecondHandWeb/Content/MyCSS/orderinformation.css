@@ -1,0 +1,81 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    min-width: 1345px;
+}
+
+.order-context {
+    height: 525px;
+}
+
+.order-details {
+    width: 1150px;
+    height: 100px;
+    margin: 0px auto;
+    padding: 15px;
+    border-bottom: 1px solid #e6eaed;
+    font-family: "KaiTi";
+}
+
+.order-picture {
+    float: left;
+    width: 120px;
+    height: 100px;
+}
+.order-picture-context {
+    width: 120px;
+    height: 100px;
+}
+
+.order-word {
+    float: left;
+    margin-left: 20px;
+}
+
+.order-word-context {
+    font-size: 20px;
+}
+
+.order-word-context, .order-price-context {
+    padding: 4px;
+}
+
+.order-time-context {
+    padding: 4px;
+    margin-top: 20px;
+}
+
+.btn-look-delete {
+    float: right;
+    height: 50px;
+    padding: 25px;
+}
+
+.btn-look, .btn-delete {
+    height: 50px;
+    background-color: rgb(98, 99, 98);
+    border-radius: 5px;
+    color: white;
+    padding: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 50px;
+}
+
+.already-cancel {
+    float: right;
+    height: 50px;
+    padding: 25px;
+    line-height: 50px;
+}
+
+.already-cancel-order {
+    color: red;
+    font-size: 20px;
+}

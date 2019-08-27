@@ -1,0 +1,51 @@
+﻿.notice {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: 50px;
+    margin-left: 40px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+    width: 95%;
+}
+
+.small-notice {
+    font-size: 15px;
+}
+
+.notices-context {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 20px;
+    height: 380px;
+    width: 95%;
+}
+
+.notice-details {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    width: 97%;
+    margin: 10px;
+    border-bottom: 1px solid #e6eaed;
+}
+
+.notice-speakers {
+    height: 25px;
+    width: 25px;
+}
+
+.notice-title {
+    position: absolute;
+    margin-left: 10px;
+    width: 450px;
+    text-decoration: none;
+    color: black;
+}
+
+.notice-time {
+    float: right;
+}

@@ -1,0 +1,97 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    min-width: 1345px;
+}
+
+.col-information {
+    width: 600px;
+    height: 700px;
+    margin: 20px auto;
+    padding-top: 30px;
+    padding-left: 40px;
+    background: rgb(230, 228, 228);
+}
+
+.mainlable {
+    border-bottom: 1px solid black;
+}
+
+.details-context {
+    width: 480px;
+    height: 400px;
+    padding: 40px;
+    font-family: "KaiTi";
+}
+
+.student-details {
+    list-style: none;
+}
+.various-picture {
+    width: 336px;
+    height: 210px;
+}
+.various-classes {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.btn-look, .btn-cancel, .btn-down, #opener, #stuconfirm {
+    background-color: rgb(96, 99, 96);
+    border-radius: 5px;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-cancel, .btn-down {
+    font-family: "KaiTi";
+    border: none;
+}
+
+#disappare {
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 20px;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -100px;
+    text-align: center;
+    background: #F2F2F2;
+    z-index: 1000;
+}
+
+#context {
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#btnmodify, #stuconfirm {
+    float: left;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.id {
+    margin-top: 20px;
+}
+
+.modpass {
+    border: none;
+    display: inline-block;
+    outline: none;
+    border-bottom: 1px solid black;
+}

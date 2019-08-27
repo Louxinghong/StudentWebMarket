@@ -1,0 +1,47 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+    <link href="~/Content/MyCSS/addnewthing.css" rel="stylesheet" />
+    <title>新增物品</title>
+
+</head>
+<body>
+    <div class="addnewthing">
+        <h1 class="newthing-title">商品登记</h1>
+        <div class="newthing">
+            <form class="newthing-context" name="newres" action="~/Thing/AddNewThingSuccess" method="post" enctype="multipart/form-data">
+                物件名称：<input class="newthing-details" type="text" name="resname" value="" /><br />
+
+                物件主级：<select class="newthing-details" name="rescategorymain" id="rescategorymain" onchange="changeSelect(this.selectedIndex)"></select><br />
+                物件次级：<select class="newthing-details" name="rescategorysecond" id="rescategorysecond"></select><br />
+
+                物件价格：<input class="newthing-details" type="text" name="resprice" value="" /><br>
+
+                <div class="ob" id="od" draggable="true">
+                    选择图片：<input type="file" id="file" name="file">
+                </div>
+
+                图片显示：<div class="imgbox"></div>
+                物件简介：<input class="newthing-details" type="text" name="resintroduction" value="" /><br />
+                图片名称：<input class="newthing-details" type="text" name="respicture" value="" id="picturename" /><br />
+                物主名称：<input class="newthing-details" type="text" readonly="readonly" name="regname" value="@Request.Cookies["cookieusername"].Value" /><br />
+                物主电话：<input class="newthing-details" type="text" readonly="readonly" name="regphone" value="@Request.Cookies["cookieuserphone"].Value" /><br />
+                身份证号：<input class="newthing-details" type="text" readonly="readonly" name="regidcard" value="@Request.Cookies["cookieuseridcard"].Value" /><br />
+                物主学校：<input class="newthing-details" type="text" readonly="readonly" name="regschool" value="@Request.Cookies["cookieuserschool"].Value" /><br />
+
+                <p><a class="back" href="javascript:history.back(-1)">返回</a></p>
+                <input class="btnsubmit" type="submit" value="提交" id="submit" />
+            </form>
+        </div>
+    </div>
+    <script src="~/Scripts/MyJavaScripts/addnewthing.js"></script>
+
+</body>
+</html>
+

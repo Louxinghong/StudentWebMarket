@@ -1,0 +1,66 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    min-width: 1345px;
+}
+
+.collection-context {
+    height:525px;
+}
+
+.collection-details {
+    width: 1150px;
+    height: 100px;
+    margin: 0px auto;
+    padding: 15px;
+    border-bottom: 1px solid #e6eaed;
+    font-family: "KaiTi";
+}
+.collection-details:hover {
+    cursor: pointer;
+    background: #EAEAEA;
+}
+
+.collection-picture {
+    float: left;
+    width: 120px;
+    height: 100px;
+}
+.collection-picture-context {
+    width: 120px;
+    height: 100px;
+}
+
+.collection-word {
+    float: left;
+    margin-left: 20px;
+    width: 350px;
+    height: 100px;
+}
+.collection-word-context {
+    font-size: 20px;
+}
+
+.collection-word-context, .collection-price-context {
+    padding: 4px;
+}
+
+.collection-time-context {
+    padding: 4px;
+    margin-top: 20px;
+}
+.whether {
+    float: right;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.already-sell, .already-down {
+    color: red;
+}
+

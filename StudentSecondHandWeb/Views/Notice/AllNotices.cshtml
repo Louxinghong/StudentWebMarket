@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.NoticeInfo>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/allnotices.css" rel="stylesheet" />
+    <title>公告栏</title>
+</head>
+<body>
+    <p class="notice">公告栏</p>
+    <div class="notices-context">
+        @foreach (var item in Model)
+        {
+            <p class="notice-details">
+                <img class="notice-speakers" src="../images/speakers.png" alt="">
+                <a class="notice-title" href="~/Notice/ShowNotice?id=@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.NotTitle)</a>
+                <span class="notice-time">@Html.DisplayFor(modelItem => item.NotTime)</span>
+            </p>
+        }
+    </div>
+
+    @Html.PagedListPager(
+    Model, page => Url.Action("AllNotices", new { page = page }),
+    new PagedListRenderOptions {
+        LinkToFirstPageFormat = "首页",
+        LinkToPreviousPageFormat = "上一页",
+        LinkToNextPageFormat = "下一页",
+        LinkToLastPageFormat = "尾页",
+        MaximumPageNumbersToDisplay = 5
+    }
+)
+</body>
+</html>
+

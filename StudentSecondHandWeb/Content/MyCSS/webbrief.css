@@ -1,0 +1,50 @@
+﻿.main {
+    height: 390px;
+}
+
+.webpic {
+    float: right;
+    width: 300px;
+    height: 250px;
+}
+
+.modify, #webbriefconfirm, #cancel, #noticeconfirm{
+    background-color: rgb(96, 99, 96);
+    border-radius: 5px;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.confirm {
+    display: none;
+}
+
+#webpurpose {
+    width: 400px;
+}
+
+#webcontext {
+    font-size: 13px;
+    width: 450px;
+    height: 470px;
+}
+
+#modifytheme, #modifypicture {
+    margin: 10px;
+    width: 255px;
+}
+
+#modifypurpose {
+    width: 650px;
+}
+
+#modifycontext {
+    width: 710px;
+    height: 300px;
+}

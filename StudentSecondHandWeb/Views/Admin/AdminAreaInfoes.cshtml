@@ -1,0 +1,64 @@
+﻿
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.AreaInfo>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台-地区信息</title>
+    <link href="~/Content/MyCSS/tableinformation.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="page-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>省</th>
+                    <th>市</th>
+                    <th>区</th>
+                    <th>全称</th>
+                    <th>编码</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Province)</td>
+                        <td>@Html.DisplayFor(modelItem => item.City)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Area)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.GbCode)</td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+    @Html.PagedListPager(
+        Model, page => Url.Action("AdminAreaInfoes", new { page = page }),
+        new PagedListRenderOptions {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 5
+        }
+    )
+
+</body>
+</html>
+
+

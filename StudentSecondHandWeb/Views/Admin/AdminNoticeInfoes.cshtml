@@ -1,0 +1,138 @@
+﻿
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.NoticeInfo>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台-公告信息</title>
+    <link href="~/Content/MyCSS/tableinformation.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link href="~/Content/MyCSS/webbrief.css" rel="stylesheet" />
+
+    <style>
+        #noticepicture {
+            width: 650px;
+            height: 300px;
+        }
+
+        #noticetitle, #noticeid, #picturepath {
+            width: 600px;
+        }
+
+        #noticecontext {
+            width: 650px;
+            height: 250px;
+        }
+        .noticeadd {
+            margin: 20px 0 0 20px;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            color: white;
+            padding: 12px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .noticemodify {
+            background-color: black;
+            color: white;
+        }
+        .delete {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="noticeadd">点此新增公告信息</button>
+    <div id="page-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>标题</th>
+                    <th>发布时间</th>
+                    <th>编辑</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NotTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NotTime)</td>
+
+                        <td>
+                            <button class="noticemodify" id="opener" onclick='modifynoticedetails(
+                                    "@Html.DisplayFor(modelItem => item.ID)",
+                                    "@Html.DisplayFor(modelItem => item.NotTitle)",
+                                    "@Html.DisplayFor(modelItem => item.NotPicture)",
+                                    "@Html.DisplayFor(modelItem => item.NotContext)",
+                                    "@Html.DisplayFor(modelItem => item.NotTime)")'>
+                                编辑
+                            </button>
+                        </td>
+                        <td>
+                            <button class="delete" id="opener" onclick='deletenotice("@Html.DisplayFor(modelItem => item.ID)")'>
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="dialog" title="修改公告">
+        <form class="context" name="modifynotice" action="~/Admin/ModifyOrAddNotice" method="post" enctype="multipart/form-data">
+            <span><img id="noticepicture" src="" /></span>
+            <p class="id">
+                编号：<input id="noticeid" name="noticeid" readonly="readonly" />
+            </p>
+            <p>
+                标题：<input id="noticetitle" name="noticetitle" />
+            </p>
+
+            <div class="ob" id="od" draggable="true">
+                图片：<input type="file" id="file" name="file">
+            </div>
+
+            <p>路径：<input id="picturepath" name="picturepath" readonly="readonly"/></p>
+            <p>内容：</p>
+            <p><textarea id="noticecontext" name="noticecontext"></textarea></p>
+            <p class="time">时间：<span id="noticetime"></span></p>
+
+            <input id="noticeconfirm" type="submit" value="提交" />
+        </form>
+    </div>
+
+    @Html.PagedListPager(
+        Model, page => Url.Action("AdminNoticeInfoes", new { page = page }),
+        new PagedListRenderOptions {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 5
+        }
+    )
+
+    <script src="~/Scripts/MyJavaScripts/backgroundinfodetails.js"></script>
+</body>
+</html>
+
+
+
+

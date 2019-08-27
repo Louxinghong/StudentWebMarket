@@ -1,0 +1,55 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.addnewthing {
+    width: 600px;
+    height: 1100px;
+    margin: 30px auto;
+    background: #D9D9D9;
+    padding-top: 20px;
+}
+
+.newthing-title {
+    border-bottom: 2px solid black;
+}
+
+.newthing {
+    width: 400px;
+    height: 900px;
+    margin: 20px auto;
+}
+
+.newthing-details {
+    width: 400px;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.imgbox {
+    width: 400px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.btnsubmit, .back {
+    background-color: rgb(96, 99, 96);
+    border-radius: 2px;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 20px;
+    float: right;
+}
+
+.back {
+    text-decoration: none;
+}

@@ -1,0 +1,123 @@
+* {
+    box-sizing: content-box;
+    margin: 0;
+	padding: 0;
+}
+body {
+    -webkit-text-size-adjust: none;
+    font-size: 14px;
+    font-family: "microsoft yahei","Arial Narrow",Helvetica,sans-serif;
+    color: #000;
+    line-height: 1.2;
+    text-align: left;
+    background: #5f5e5e;
+}
+.index-nav {
+	position: relative;
+	min-width:1200px;
+    height: 50px; 
+    background: white;
+}
+.index-nav-frame {
+    position: relative;
+    width:1200px;
+    background-color:white;
+
+}
+.index-nav-frame-line{
+	color: #333333;
+	background: white;
+	float: left;
+	position: relative;
+	display: block;
+	outline: none;
+	cursor: pointer;
+	width: 100px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: 700;
+}
+.index-nav-frame-line:hover{
+	background:rgb(85, 83, 83);
+	color:white;
+}
+.index-nav-frame-line-center{
+	opacity: 0;
+	height: 0;
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+.index-nav-frame-line-li{
+	width: 100%;
+	font-weight: 500;
+	text-align: center;
+	background: white;
+	color: #666666;
+}
+.index-nav-frame-line-li:hover{
+	background: rgb(85, 83, 83);
+	color: white;
+}
+.index-nav-frame-line:hover .index-nav-frame-line-center{
+	height:auto;
+	opacity: 1;
+}
+
+.log-register {
+    float: right;
+}
+
+.length, .login, .register {
+    color: #333333;
+    background: white;
+    float: left;
+    position: relative;
+    display: block;
+    outline: none;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.length {
+    width: 20px;
+}
+
+.login {
+    width: 70px;
+}
+
+.register {
+    width: 70px;
+}
+
+.login:hover {
+    background: rgb(85, 83, 83);
+    color: white;
+}
+
+.register:hover {
+    background: rgb(85, 83, 83);
+    color: white;
+}
+
+
+#backtotop {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 30px;
+    right: 55px;
+    background: url(../images/backtotop.png) left top;
+    display: none;
+    border: none;
+    cursor: pointer;
+}
+
+#backtotop:hover {
+    background: url(../images/backtotop.png) no-repeat left -40px;
+}

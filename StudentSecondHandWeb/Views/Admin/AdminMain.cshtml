@@ -1,0 +1,109 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="~/Content/MyCSS/houtai.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/MyCSS/public.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/MyCSS/smartMenu.css" type="text/css" rel="stylesheet">
+    <title>后台信息</title>
+</head>
+<body>
+    <div id="admin">
+        <div class="ad-menu" id="ad-menu">
+            <div class="ad-logo"><img src="/images/m-logo.png" height="103" width="130"></div>
+            <div class="ad-list">
+                <ul>
+                    <li>
+                        <div class="li-item"><em class="scm li-ico ic2"></em>商品管理<span class="scm arrow"></span></div>
+                        <dl>
+                            <dd>
+                                <a href="~/Admin/AdminThingInfoes" class="dd-item" target="ifrPage">商品信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                            <dd>
+                                <a href="~/Admin/AdminCollectionInfoes" class="dd-item" target="ifrPage">收藏信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                            <dd>
+                                <a href="~/Admin/AdminOrderInfoes" class="dd-item" target="ifrPage">订单信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                            <dd>
+                                <a href="~/Admin/AdminMessageInfoes" class="dd-item" target="ifrPage">留言信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <div class="li-item"><em class="scm li-ico ic3"></em>网站管理<span class="scm arrow"></span></div>
+                        <dl>
+                            <dd>
+                                <a href="~/Admin/AdminWebBriefInfoes" class="dd-item" target="ifrPage">网站信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                            <dd>
+                                <a href="~/Admin/AdminNoticeInfoes" class="dd-item" target="ifrPage">公告栏信息<span class="scm dd-ar"></span></a>
+
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <div class="li-item"><em class="scm li-ico ic4"></em>用户管理<span class="scm arrow"></span></div>
+                        <dl>
+                            <dd>
+                                <a href="~/Admin/AdminStudentInfoes" class="dd-item" target="ifrPage">用户信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                            <dd>
+                                <a href="~/Admin/AdministratorInfoes" class="dd-item" target="ifrPage">管理员信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <div class="li-item"><em class="scm li-ico ic5"></em>地区管理<span class="scm arrow"></span></div>
+                        <dl>
+                            <dd>
+                                <a href="~/Admin/AdminAreaInfoes" class="dd-item" target="ifrPage">地区信息<span class="scm dd-ar"></span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ad-comment-box" id="ad-comment">
+            <div class="ad-top-comment">
+                <div class="ad-message">
+                    <div class="ad-top-left">
+                        <div class="ad-change-btn">
+                            <a id="ad-list" href="javascript:;" class="scm ad-list-btn"></a>
+                        </div>
+                    </div>
+                    <div class="ad-top-right">
+                        <div class="ad-welcom">
+                            <div class="ad-wel-img"><img src="/images/min_logo.png" height="36" width="36"></div>
+                            <div class="ad-wel-text">
+                                <div class="font-wel">欢迎您！<strong>@Request.Cookies["cookieadminname"].Value</strong></div>
+                                <div class="font-wel"><a id="adminout" href="~/Admin/AdminLogin"><strong>【退出】</strong></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-main-nav-box">
+
+                </div>
+                <div class="ad-sub-nav-box content-tabs">
+
+                </div>
+            </div>
+            <div class="ad-main-comment J_mainContent" id="ad-iframe">
+                <iframe id="ifrPage" class="J_iframe" name="ifrPage" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/MyJavaScripts/contabs.js"></script>
+    <script type="text/javascript" src="~/Scripts/MyJavaScripts/maintabs.js"></script>
+    <script type="text/javascript" src="~/Scripts/MyJavaScripts/jquery-smartMenu-min.js"></script>
+    <script type="text/javascript" src="~/Scripts/MyJavaScripts/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".ad-menu").niceScroll({ cursorborder: "0 none", cursorcolor: "#1a1a19", cursoropacitymin: "0", boxzoom: false });
+        })
+    </script>
+</body>
+</html>

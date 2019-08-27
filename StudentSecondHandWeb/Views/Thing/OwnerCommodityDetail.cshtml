@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@model StudentSecondHandWeb.Models.ThingInfo
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人商品详细信息</title>
+    <link rel="stylesheet" href="~/Content/MyCSS/collectionorownerdetail.css" />
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+</head>
+<body>
+    <div class="col-information">
+        <h1 class="mainlable">商品信息</h1>
+        <div class="details-context">
+            <ul class="student-details">
+                <li class="various-classes">
+                    <span><img class="various-picture" src="@Html.DisplayFor(model => model.ResPicture)"></span>
+                </li>
+                <li class="various-classes">
+                    <span>商品编号：</span>
+                    <span id="resid">@Html.DisplayFor(model => model.ID)</span>
+                </li>
+                <li class="various-classes">
+                    <span>商品名称：</span>
+                    <span>@Html.DisplayFor(model => model.ResName)</span>
+                </li>
+                <li class="various-classes">
+                    <span>物主名称：</span>
+                    <span>@Html.DisplayFor(model => model.RegName)</span>
+                </li>
+                <li class="various-classes">
+                    <span>物主电话：</span>
+                    <span>@Html.DisplayFor(model => model.RegPhone)</span>
+                </li>
+                <li class="various-classes">
+                    <span>物主学校：</span>
+                    <span>@Html.DisplayFor(model => model.RegSchool)</span>
+                </li>
+                @if (@Html.DisplayFor(model => model.WhetherDown).ToString() == "0" && @Html.DisplayFor(model => model.WhetherSell).ToString() == "0")
+                {
+                    <li class="various-classes">
+                        <button class="btn-down" id="btndown">商品下架</button>
+                    </li>
+                }
+                @if (@Html.DisplayFor(model => model.WhetherSell).ToString() == "1")
+                {
+                    <li class="various-classes">
+                        <span>商品已出售</span>
+                    </li>
+                }
+                @if (@Html.DisplayFor(model => model.WhetherDown).ToString() == "1")
+                {
+                    <li class="various-classes">
+                        <span>商品已下架</span>
+                    </li>
+                }
+
+            </ul>
+
+        </div>
+
+    </div>
+    <script src="~/Scripts/MyJavaScripts/downcommodity.js"></script>
+</body>
+</html>
+

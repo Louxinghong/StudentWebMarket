@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+    int goodthingcount = 0;
+    int somethingcount = 0;
+    int noticecount = 0;
+}
+
+@using StudentSecondHandWeb.Models
+@model StudentSecondHandWeb.Controllers.ViewModelForMain
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/Content/MyCSS/mainview.css" />
+    <link rel="stylesheet" href="~/Content/MyCSS/ft-carousel.css" />
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+    <title>主页</title>
+</head>
+<body>
+
+    <div class="example">
+        <div class="ft-carousel" id="carousel_1">
+            <ul class="carousel-inner">
+                <li class="carousel-item"><img src="~/images/b1.jpg" /></li>
+                <li class="carousel-item"><img src="~/images/b2.jpg" /></li>
+                <li class="carousel-item"><img src="~/images/b3.jpg" /></li>
+                <li class="carousel-item"><img src="~/images/b4.jpg" /></li>
+                <li class="carousel-item"><img src="~/images/b5.jpg" /></li>
+                <li class="carousel-item"><img src="~/images/b6.jpg" /></li>
+            </ul>
+        </div>
+    </div>
+
+    <a class="notice" href="~/Notice/AllNotices">公告栏 | <span class="small-notice">关注发生的每一件事</span></a>
+    <div class="notices-context">
+        @foreach (var item in Model.Notice)
+        {
+            if (noticecount <= 4)
+            {
+                <p class="notice-details">
+                    <img class="notice-speakers" src="../images/speakers.png" alt="">
+                    <a class="notice-title" href="~/Notice/ShowNotice?id=@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.NotTitle)</a>
+                    <span class="notice-time">@Html.DisplayFor(modelItem => item.NotTime)</span>
+                </p>
+                noticecount = noticecount + 1;
+            }
+
+        }
+
+    </div>
+
+    <div class="commodity-introduction">
+        <p class="slogan-commodity">
+            <img src="~/images/slogan.png" class="slogan" />
+            <span class="commodity">与品质生活不期而遇，在这里能正好遇见你所需要的</span>
+        </p>
+
+        @foreach (var item in Model.Thing)
+        {
+            if (goodthingcount <= 6 && item.WhetherSell == "0" && item.WhetherDown == "0")
+            {
+                <div class="goodcommodity">
+                    <a href="~/Thing/ThingDetail?id=@Html.DisplayFor(modelItem => item.ID)">
+                        <img class="goodcommoditypicture" src="@Html.DisplayFor(modelItem => item.ResPicture)">
+                    </a>
+
+                    <div class="goodcommodity-introduction">
+                        @Html.DisplayFor(modelItem => item.ResIntroduction)
+                    </div>
+                </div>
+                goodthingcount = goodthingcount + 1;
+            }
+
+
+        }
+    </div>
+
+
+    <div class="thing-array">
+        @foreach (var item in Model.Thing)
+        {
+            if (somethingcount <= 3 && item.WhetherSell == "0" && item.WhetherDown == "0")
+            {
+                <a class="thing-detail" href="~/Thing/ThingDetail?id=@Html.DisplayFor(modelItem => item.ID)">
+                    <img src="~/images/search.png" class="search-picture">
+                </a>
+                <div class="main">
+                    <div class="thing-picture">
+                        <img class="picture" src="@Html.DisplayFor(modelItem => item.ResPicture)">
+                    </div>
+
+                    <div class="context">
+                        <p class="thing-info">
+                            <span class="name">@Html.DisplayFor(modelItem => item.ResName)</span>
+                        </p>
+                        <p class="thing-info">
+                            <span class="thing-price">¥<span class="price">@Html.DisplayFor(modelItem => item.ResPrice)元</span></span>
+                        </p>
+                        <div class="thing-introduction">
+                            @Html.DisplayFor(modelItem => item.ResIntroduction)
+                        </div>
+                    </div>
+                </div>
+                somethingcount = somethingcount + 1;
+            }
+
+
+        }
+
+    </div>
+
+
+    <div class="brief-introduction">
+        @foreach (var item in Model.WebBrief)
+        {
+            <div class="brief-introduction-picture">
+                <img src="@Html.DisplayFor(modelItem => item.WebPicture)" class="brief-introduction-picture-attribute">
+            </div>
+
+            <div class="brief-introduction-text" onclick="location.href='/WebBrief/WebBrief'">
+                @Html.DisplayFor(modelItem => item.WebContext)
+            </div>
+        }
+    </div>
+
+    <script src="~/Scripts/MyJavaScripts/ft-carousel.min.js"></script>
+
+    <script type="text/javascript">
+        $("#carousel_1").FtCarousel();
+    </script>
+</body>
+</html>

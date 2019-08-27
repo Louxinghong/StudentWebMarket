@@ -1,0 +1,73 @@
+﻿
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.StudentInfo>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台-用户信息</title>
+    <link href="~/Content/MyCSS/tableinformation.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="page-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>电话</th>
+                    <th>身份证</th>
+                    <th>邮箱</th>
+                    <th>地址</th>
+                    <th>学校</th>
+                    <th>帐号</th>
+                    <th>密码</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuSex)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuPhone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuIdCard)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuEmail)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuAddress)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuSchool)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuPassID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StuPassword)</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+    @Html.PagedListPager(
+        Model, page => Url.Action("AdminStudentInfoes", new { page = page }),
+        new PagedListRenderOptions {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 5
+        }
+    )
+
+    <script src="~/Scripts/MyJavaScripts/backgroundinfodetails.js"></script>
+</body>
+</html>
+
+
+

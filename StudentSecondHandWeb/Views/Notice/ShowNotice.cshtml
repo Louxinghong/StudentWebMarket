@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+    ViewBag.Title = "";
+}
+
+@model StudentSecondHandWeb.Models.NoticeInfo
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公告栏详细信息</title>
+    <style>
+        .noticeinfo {
+            position: relative;
+            margin: 0px auto;
+            width: 700px;
+            height: 1000px;
+            margin-top: 40px;
+        }
+        .noticepicture {
+            width: 700px;
+            height: 400px;
+        }
+        .noticetitle {
+            text-align: center;
+            font-size: 25px;
+            font-weight: 700;
+            font-family: "KaiTi";
+            margin-top: 30px;
+        }
+        .noticetime {
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 30px
+        }
+        .noticecontent {
+            position: relative;
+            width: 650px;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="noticeinfo">
+        <img class="noticepicture" src="@Html.DisplayFor(model => model.NotPicture)">
+        <p class="noticetitle">@Html.DisplayFor(model => model.NotTitle)</p>
+        <p class="noticetime">发布于 @Html.DisplayFor(model => model.NotTime)</p>
+        <p class="noticecontent">@Html.DisplayFor(model => model.NotContext)</p>
+    </div>
+</body>
+</html>

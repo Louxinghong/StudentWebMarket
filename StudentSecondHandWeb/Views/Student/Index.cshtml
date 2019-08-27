@@ -1,0 +1,62 @@
+﻿@model IEnumerable<StudentSecondHandWeb.Models.StudentInfo>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr style="list-style:none">
+        <td>ID</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>联系电话</td>
+        <td>身份证</td>
+        <td>邮箱</td>
+        <td>住址</td>
+        <td>所在学校</td>
+        <td>账号</td>
+        <td>密码</td>
+    </tr>
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <p>@Html.DisplayFor(modelItem => item.ID)</p>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuSex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuIdCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuPassID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StuPassword)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    width: 500px;
+    height: 500px;
+    margin: 0px auto;
+}
+
+.success-picture {
+    width: 66px;
+    height: 66px;
+    margin: 50px auto 25px;
+    background: url("/images/success.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.success-word {
+    width: 400px;
+    height: 40px;
+    margin: 0px auto;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.success-word p {
+    text-align: center;
+}
+
+.btn-look-continue {
+    width: 195px;
+    height: 66px;
+    margin: 50px auto 25px;
+}
+
+.btn-look, .btn-continue {
+    background-color: #4CAF50;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-look:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-continue:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+

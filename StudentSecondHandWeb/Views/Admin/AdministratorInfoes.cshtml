@@ -1,0 +1,60 @@
+﻿
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.AdminInfo>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>管理员信息</title>
+    <link href="~/Content/MyCSS/tableinformation.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="page-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>电话</th>
+                    <th>帐号</th>
+                    <th>密码</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdmName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdmPhone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdmPassId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdmPassword)</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+    @Html.PagedListPager(
+        Model, page => Url.Action("AdministratorInfoes", new { page = page }),
+        new PagedListRenderOptions {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 5
+        }
+    )
+
+</body>
+</html>
+
+

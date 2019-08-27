@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@model StudentSecondHandWeb.Models.StudentInfo
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户信息修改</title>
+    <link rel="stylesheet" href="~/Content/MyCSS/collectionorownerdetail.css" />
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="col-information">
+
+        <h1 class="mainlable">个人信息修改</h1>
+        <div class="details-context">
+            <ul class="student-details">
+                <li class="various-classes">
+                    <span>用户编号：</span>
+                    <span id="id">@Html.DisplayFor(model => model.ID)</span>
+                </li>
+                <li class="various-classes">
+                    <span>用户名称：</span>
+                    <input type="text" id="name" value="@Html.DisplayFor(model => model.StuName)" />
+                </li>
+                <li class="various-classes">
+                    <span>用户学校：</span>
+                    <input type="text" id="school" value="@Html.DisplayFor(model => model.StuSchool)" />
+                </li>
+                <li class="various-classes">
+                    <span>用户地址：</span>
+                    <input type="text" id="address" value="@Html.DisplayFor(model => model.StuAddress)" />
+                </li>
+                <li class="various-classes" id="btnmodify">
+                    <button id="opener" class="modconfirm">
+                        确定
+                    </button>
+                </li>
+                <li class="various-classes" id="btnmodify">
+                    <button id="opener" class="modback">
+                        返回
+                    </button>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+
+    <script src="~/Scripts/MyJavaScripts/modifystuinfo.js"></script>
+</body>
+</html>
+
+
+

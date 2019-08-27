@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.ThingInfo>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/Content/MyCSS/ownercommodity.css" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+    <title>个人商品</title>
+</head>
+<body>
+    <div class="commodity-context">
+        @foreach (var item in Model)
+        {
+            <div class="commodity-details" onclick="window.location.href='/Thing/OwnerCommodityDetail?id=@Html.DisplayFor(modelItem => item.ID)'">
+                <div class="commodity-picture">
+                    <img class="commodity-picture-context" src="@Html.DisplayFor(modelItem => item.ResPicture)" />
+                </div>
+                <div class="commodity-word">
+                    <p class="commodity-word-context">
+                        <span>@Html.DisplayFor(modelItem => item.ResName)</span>
+                    </p>
+                    <p class="commodity-price-context">
+                        <span>¥：</span>
+                        <span>@Html.DisplayFor(modelItem => item.ResPrice)</span>
+                    </p>
+                    <p class="commodity-time-context">
+                        <span>上架时间：</span>
+                        <span>@Html.DisplayFor(modelItem => item.ShelfTime)</span>
+                    </p>
+                </div>
+
+                @if (item.WhetherSell == "0" && item.WhetherDown == "0")
+                {
+                    <div class="whether">
+                        <p class="no-sell">未出售</p>
+                    </div>
+                }
+
+                @if (item.WhetherSell == "1")
+                {
+                    <div class="whether">
+                        <p class="already-sell">已出售</p>
+                    </div>
+                }
+
+                @if (item.WhetherDown == "1")
+                {
+                    <div class="whether">
+                        <p class="already-down">已下架</p>
+                    </div>
+                }
+
+            </div>
+        }
+    </div>
+    @Html.PagedListPager(
+        Model, page => Url.Action("OwnerCommodity", new { page = page }),
+        new PagedListRenderOptions {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 5
+        }
+    )
+    <script src="~/Scripts/MyJavaScripts/downcommodity.js"></script>
+</body>
+</html>
+

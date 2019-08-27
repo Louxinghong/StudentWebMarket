@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="~/Content/MyCSS/logView.css" />
+    <script src="~/Scripts/MyJavaScripts/jquery.min.js"></script>
+</head>
+<body>
+    <div class="large-header">
+        <div class="logo_box">
+            <h3 class="title">欢迎登录</h3>
+            <div class="input_outer">
+                <span class="picture_passid"></span>
+                <input id="passid" class="text" type="text" placeholder="请输入账户">
+                <p id="message-passid"></p>
+            </div>
+
+            <div class="input_outer">
+                <span class="picture_password"></span>
+                <input id="password" class="text" type="password" placeholder="请输入密码">
+                <p id="message-password"></p>
+            </div>
+
+            <div class="code">
+                <div class="writecode-context">
+                    <span class="picture_code"></span>
+                    <input id="writecode" type="text" class="writecode" placeholder="请输入验证码">
+                </div>
+                <canvas class="myCanvas" id="myCanvas"></canvas>
+                <p id="message-code"></p>
+            </div>
+
+            <button id="btnlogin" class="act-but">登录</button>
+            <p id="message"></p>
+            <p class="gotoregister">还未注册？<a class="register" href="~/Register/Register">前往注册</a></p>
+        </div>
+    </div>
+    <script src="~/Scripts/MyJavaScripts/login.js"></script>
+</body>
+</html>

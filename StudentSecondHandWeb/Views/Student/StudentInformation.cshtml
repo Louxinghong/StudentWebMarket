@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/NavigationBar.cshtml";
+}
+
+@model IEnumerable<StudentSecondHandWeb.Models.StudentInfo>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="~/Content/MyCSS/collectionorownerdetail.css" />
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+   
+</head>
+<body>
+
+    <div id="disappare" style="display:none;">
+        <p id="context"></p>
+    </div>
+
+
+    <div class="col-information">
+        @foreach (var item in Model)
+        {
+            if (@Html.DisplayFor(modelItem => item.StuPhone).ToString() == @Request.Cookies["cookieuserphone"].Value)
+            {
+                <h1 class="mainlable">个人信息</h1>
+                <div class="details-context">
+                    <ul class="student-details">
+                        <li class="various-classes">
+                            <span>用户编号：</span>
+                            <span id="id">@Html.DisplayFor(modelitem => item.ID)</span>
+                        </li>
+                        <li class="various-classes">
+                            <span>用户名称：</span>
+                            <span>@Html.DisplayFor(modelitem => item.StuName)</span>
+                        </li>
+                        <li class="various-classes">
+                            <span>用户电话：</span>
+                            <span>@Html.DisplayFor(modelitem => item.StuPhone)</span>
+                        </li>
+                        <li class="various-classes">
+                            <span>身份证号：</span>
+                            <span>@Html.DisplayFor(modelitem => item.StuIdCard)</span>
+                        </li>
+                        <li class="various-classes">
+                            <span>用户邮箱：</span>
+                            <span>@Html.DisplayFor(modelitem => item.StuEmail)</span>
+                        </li>
+                        <li class="various-classes">
+                            <span>用户学校：</span>
+                            <span>@Html.DisplayFor(modelitem => item.StuSchool)</span>
+                        </li>
+                        <li class="various-classes">
+                            <span>用户地址：</span>
+                            <span>@Html.DisplayFor(modelitem => item.StuAddress)</span>
+                        </li>
+                        <li class="various-classes" id="btnmodify">
+                            <button id="opener" class="modstu">
+                                更改信息
+                            </button>
+                        </li>
+                        <li class="various-classes" id="btnmodify">
+                            <button id="opener" onclick='modifypassword("@Html.DisplayFor(modelitem => item.ID)","@Html.DisplayFor(modelitem => item.StuName)")'>
+                                更改密码
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+
+    </div>
+
+    <div id="dialog" title="修改密码">
+
+        <p class="id">
+            <span>用户编码：</span><input class="modpass" id="regid" readonly="readonly" />
+        </p>
+        <p class="id">
+            <span>用户名称：</span><input class="modpass" id="name"readonly="readonly" />
+        </p>
+        <p class="id">
+            <span>原始密码：</span><input class="modpass" id="oldpassword" type="password"/>
+        </p>
+        <p class="id">
+            <span>新的密码：</span><input class="modpass" id="newpassword" type="password"/>
+        </p>
+        <p class="id">
+            <span>再次输入：</span><input class="modpass" id="passwordagain" type="password"/>
+        </p>
+        <button id="stuconfirm">提交</button>
+
+    </div>
+
+    <script src="~/Scripts/MyJavaScripts/modifystuinfo.js"></script>
+</body>
+</html>
+
+
+

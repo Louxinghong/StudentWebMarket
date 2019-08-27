@@ -1,0 +1,116 @@
+﻿
+
+@using PagedList.Mvc;
+@model PagedList.IPagedList<StudentSecondHandWeb.Models.OrderInfo>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台-订单信息</title>
+    <link href="~/Content/MyCSS/tableinformation.css" rel="stylesheet" />
+    <link href="~/Content/MyCSS/PagedList.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <style>
+        #respicture {
+            float: right;
+            width: 450px;
+            height: 450px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="page-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>商品编号</th>
+                    <th>名称</th>
+                    <th>主类</th>
+                    <th>次类</th>
+                    <th>价格</th>
+                    <th>购买者</th>
+                    <th>号码</th>
+                    <th>查看详情</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ResID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ResName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ResCategoryMain)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ResCategorySecond)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ResPrice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Buyer)</td>
+                        <td>@Html.DisplayFor(modelItem => item.BuyerPhone)</td>
+                        <td>
+                            <button id="opener" onclick='showorderdetails(
+                                    "@Html.DisplayFor(modelItem => item.ResName)",
+                                    "@Html.DisplayFor(modelItem => item.ResCategoryMain)",
+                                    "@Html.DisplayFor(modelItem => item.ResCategorySecond)",
+                                    "@Html.DisplayFor(modelItem => item.ResPrice)",
+                                    "@Html.DisplayFor(modelItem => item.ResPicture)",
+                                    "@Html.DisplayFor(modelItem => item.Seller)",
+                                    "@Html.DisplayFor(modelItem => item.SellerPhone)",
+                                    "@Html.DisplayFor(modelItem => item.SellerSchool)",
+                                    "@Html.DisplayFor(modelItem => item.Buyer)",
+                                    "@Html.DisplayFor(modelItem => item.BuyerPhone)",
+                                    "@Html.DisplayFor(modelItem => item.BuyerSchool)",
+                                    "@Html.DisplayFor(modelItem => item.BuyTime)",
+                                    "@Html.DisplayFor(modelItem => item.WhetherCancelBuy)")'>
+                                查看详情
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="dialog" title="订单详细信息">
+
+        名称：<span id="resname"></span>
+        <span><img id="respicture" src="" /></span>
+        <p>主类：<span id="rescategorymain"></span></p>
+        <p>次类：<span id="rescategorysecond"></span></p>
+        <p>价格：<span id="resprice"></span>元</p>
+        <p>卖家：<span id="seller"></span></p>
+        <p>卖家电话：<span id="sellerphone"></span></p>
+        <p>卖家学校：<span id="sellerschool"></span></p>
+        <p>购买者：<span id="buyer"></span></p>
+        <p>购买者电话：<span id="buyerphone"></span></p>
+        <p>购买者学校：<span id="buyerschool"></span></p>
+        <p>购买时间：<span id="buytime"></span></p>
+        <p>是否取消订单：<span id="whethercancelbuy"></span></p>
+
+    </div>
+
+    @Html.PagedListPager(
+        Model, page => Url.Action("AdminOrderInfoes", new { page = page }),
+        new PagedListRenderOptions {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 5
+        }
+    )
+
+    <script src="~/Scripts/MyJavaScripts/backgroundinfodetails.js"></script>
+</body>
+</html>
+
+
+
